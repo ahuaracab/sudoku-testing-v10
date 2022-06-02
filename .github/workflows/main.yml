@@ -6,9 +6,10 @@ jobs:
     uses: bahmutov/cypress-workflows/.github/workflows/standard.yml@v1
     with:
       start: npm start
+      command: npx cypress run
 
   component:
     # https://github.com/bahmutov/cypress-workflows
     uses: bahmutov/cypress-workflows/.github/workflows/standard.yml@v1
     with:
-      command: cypress run --component
+      command: npx cypress run --component
