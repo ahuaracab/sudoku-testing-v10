@@ -37,8 +37,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "9.7.0",
-    "cypress-real-events": "1.7.0",
+    "cypress": "10.0.1",
     "prettier": "2.5.1",
     "start-server-and-test": "1.14.0"
   }
