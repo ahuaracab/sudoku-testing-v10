@@ -11,20 +11,20 @@ export const Timer = (props) => {
   let { timeGameStarted, won } = useSudokuContext()
 
   useEffect(() => {
-    if (!won) setTimeout(() => tick(), 1000)
+    if (!won) {
+      setTimeout(() => tick(), 1000)
+    }
   })
 
   function tick() {
-    // console.log('ticking ...', new Date())
     setCurrentTime(moment())
   }
 
   function getTimer() {
     let secondsTotal = currentTime.diff(timeGameStarted, 'seconds')
-    // console.log('current time', currentTime)
-    // console.log('game started at', timeGameStarted)
-    // console.log('seconds', secondsTotal)
-    if (secondsTotal <= 0) return '00:00'
+    if (secondsTotal <= 0) {
+      return '00:00'
+    }
     let duration = moment.duration(secondsTotal, 'seconds')
     let hours = duration.hours()
     let minutes = duration.minutes()
