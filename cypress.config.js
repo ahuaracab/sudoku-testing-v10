@@ -9,6 +9,8 @@ module.exports = defineConfig({
   },
 
   component: {
+    viewportHeight: 1000,
+    viewportWidth: 1000,
     devServer: {
       framework: 'create-react-app',
       bundler: 'webpack',
