@@ -1,6 +1,6 @@
 {
   "name": "sudoku-testing",
-  "description": "E2E and React component testing using Cypress",
+  "description": "E2E and React component testing using Cypress v10",
   "version": "1.0.0",
   "private": true,
   "license": "MIT",

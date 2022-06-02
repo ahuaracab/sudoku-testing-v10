@@ -1,4 +1,4 @@
-# sudoku-testing
+# sudoku-testing ![cypress version](https://img.shields.io/badge/cypress-10.0.1-brightgreen)
 
 > E2E and React component testing using Cypress v10
 
