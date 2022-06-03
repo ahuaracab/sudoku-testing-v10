@@ -51,5 +51,18 @@ describe('Timer', () => {
     cy.contains('.status__time', '11:40')
   })
 
+  // cannot advance the clock correctly
   it('advances the clock using cy.tick')
+
+  it('takes a screenshot of the Timer component', () => {
+    cy.mount(
+      <section className="status">
+        <Timer />
+      </section>,
+    )
+    // because the status time class uses relative positioning
+    // if we just take the .status element screenshot
+    // it will NOT show the actual timer
+    cy.get('.status .status__time').screenshot('Timer', { overwrite: true })
+  })
 })

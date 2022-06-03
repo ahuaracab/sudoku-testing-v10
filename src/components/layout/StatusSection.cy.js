@@ -14,7 +14,10 @@ describe('StatusSection', () => {
       .find('input[type=checkbox]')
       .should('not.be.checked')
 
-    cy.get('.status').screenshot('1 - modes off', { overwrite: true })
+    cy.get('.status').screenshot('1 - modes off', {
+      overwrite: true,
+      padding: 100,
+    })
 
     cy.log('**turn both modes on**')
     cy.get('.status__action-mistakes-mode')
@@ -29,6 +32,9 @@ describe('StatusSection', () => {
       .find('input[type=checkbox]')
       .should('be.checked')
 
-    cy.get('.status').screenshot('2 - both modes', { overwrite: true })
+    cy.get('.status').screenshot('2 - both modes', {
+      overwrite: true,
+      padding: 100,
+    })
   })
 })
