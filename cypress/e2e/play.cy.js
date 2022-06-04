@@ -1,6 +1,6 @@
 describe('Sudoku', () => {
   context('without time control', () => {
-    before(() => {
+    beforeEach(() => {
       cy.visit('/')
     })
 
