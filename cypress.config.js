@@ -12,12 +12,15 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: 'http://localhost:3000',
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('@bahmutov/cypress-code-coverage/plugin')(on, config)
+
       if (config.isTextTerminal) {
         return {
           excludeSpecPattern: ['cypress/e2e/all.cy.js'],
         }
       }
+
+      return config
     },
   },
 
