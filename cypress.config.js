@@ -22,6 +22,10 @@ module.exports = defineConfig({
 
       return config
     },
+    // control the code coverage plugin via env variables
+    env: {
+      specCovers: true,
+    },
   },
 
   component: {
