@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "@bahmutov/cypress-code-coverage": "^1.2.0",
+    "@bahmutov/cypress-code-coverage": "^1.2.1",
     "@cypress/instrument-cra": "^1.4.0",
     "cypress": "10.1.0",
     "prettier": "2.5.1",
