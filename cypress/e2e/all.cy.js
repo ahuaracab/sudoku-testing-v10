@@ -1,3 +1,7 @@
 import './clock.cy'
+import './game.cy'
+import './hint.cy'
+import './loads.cy'
+import './modes.cy'
 import './play.cy'
 import './spec.cy'

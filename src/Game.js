@@ -11,7 +11,7 @@ import { useSudokuContext } from './context/SudokuContext'
 /**
  * Game is the main React component.
  */
-export const Game = ({ getUniqueSudoku }) => {
+export const Game = () => {
   /**
    * All the variables for holding state:
    * gameArray: Holds the current state of the game.
