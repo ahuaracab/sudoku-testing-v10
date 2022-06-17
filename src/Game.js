@@ -5,12 +5,13 @@ import { GameSection } from './components/layout/GameSection'
 import { StatusSection } from './components/layout/StatusSection'
 import { Overlay } from './components/Overlay'
 import { getUniqueSudoku } from './solver/UniqueSudoku'
+// import * as UniqueSudoku from './solver/UniqueSudoku'
 import { useSudokuContext } from './context/SudokuContext'
 
 /**
  * Game is the main React component.
  */
-export const Game = () => {
+export const Game = ({ getUniqueSudoku }) => {
   /**
    * All the variables for holding state:
    * gameArray: Holds the current state of the game.
@@ -56,8 +57,8 @@ export const Game = () => {
         ? [window.starting, window.solved]
         : getUniqueSudoku(difficulty, e)
 
-    console.log(temporaryInitArray)
-    console.log(temporarySolvedArray)
+    // console.log(temporaryInitArray)
+    // console.log(temporarySolvedArray)
 
     setInitArray(temporaryInitArray)
     setGameArray(temporaryInitArray)
