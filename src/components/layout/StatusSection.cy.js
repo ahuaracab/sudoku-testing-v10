@@ -6,7 +6,7 @@ import '../../App.css'
 describe('StatusSection', () => {
   it('renders status', () => {
     cy.mount(
-      <div className="innercontainer">
+      <div className="innercontainer" style={{ paddingTop: '30px' }}>
         <StatusSection />
       </div>,
     )
@@ -14,10 +14,10 @@ describe('StatusSection', () => {
       .find('input[type=checkbox]')
       .should('not.be.checked')
 
-    cy.get('.status').screenshot('1 - modes off', {
-      overwrite: true,
-      padding: 100,
-    })
+    // cy.get('.status').screenshot('1 - modes off', {
+    //   overwrite: true,
+    //   padding: 100,
+    // })
 
     cy.log('**turn both modes on**')
     cy.get('.status__action-mistakes-mode')
@@ -31,10 +31,13 @@ describe('StatusSection', () => {
       .click()
       .find('input[type=checkbox]')
       .should('be.checked')
+      .wait(1000, { log: false })
 
-    cy.get('.status').screenshot('2 - both modes', {
-      overwrite: true,
-      padding: 100,
-    })
+    // cy.get('.status').screenshot('2 - both modes', {
+    //   overwrite: true,
+    //   padding: 100,
+    // })
+
+    cy.viewport(290, 500)
   })
 })
