@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference path="../../cypress.d.ts" />
 import React from 'react'
-import { Timer } from './Timer'
+import { Timer, formatTime } from './Timer'
 import '../App.css'
 import { SudokuContext } from '../context/SudokuContext'
 import moment from 'moment'
@@ -64,5 +64,19 @@ describe('Timer', () => {
     // if we just take the .status element screenshot
     // it will NOT show the actual timer
     cy.get('.status .status__time').screenshot('Timer', { overwrite: true })
+  })
+
+  it('formats the time', () => {
+    expect(formatTime({})).to.equal('00:00')
+    expect(formatTime({ seconds: 3 })).to.equal('00:03')
+    expect(formatTime({ seconds: 15, minutes: 3 })).to.equal('03:15')
+    expect(formatTime({ seconds: 15, minutes: 13, hours: 4 })).to.equal(
+      '4:13:15',
+    )
+    expect(formatTime({ seconds: 15, minutes: 13, hours: 54 })).to.equal(
+      '54:13:15',
+    )
+    // show how to write text into the document
+    cy.document().invoke('write', formatTime({ seconds: 3 }))
   })
 })
