@@ -34,6 +34,7 @@ export const Game = () => {
     setGameArray,
     difficulty,
     setDifficulty,
+    timeGameStarted,
     setTimeGameStarted,
     fastMode,
     setFastMode,
@@ -232,6 +233,10 @@ export const Game = () => {
     // eslint-disable-next-line
   }, [])
 
+  const gameLasted = Math.ceil(
+    moment.duration(moment().diff(timeGameStarted)).asSeconds(),
+  )
+
   return (
     <>
       <div className={overlay ? 'container blur' : 'container'}>
@@ -249,7 +254,11 @@ export const Game = () => {
           />
         </div>
       </div>
-      <Overlay overlay={overlay} onClickOverlay={onClickOverlay} />
+      <Overlay
+        overlay={overlay}
+        onClickOverlay={onClickOverlay}
+        time={gameLasted}
+      />
     </>
   )
 }

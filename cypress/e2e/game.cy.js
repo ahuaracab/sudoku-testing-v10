@@ -10,6 +10,16 @@ it('plays the same game', () => {
     },
   })
 
+  cy.intercept(
+    {
+      method: 'GET',
+      url: '/times/*',
+    },
+    {
+      fixture: 'times.json',
+    },
+  ).as('times')
+
   // use bundled Lodash library to transform and process the data
   const emptyCells = Cypress._.filter(init, (cell) => cell === '0').length
   // use cy.get(...:contains(text)) to select multiple elements with text
@@ -28,4 +38,10 @@ it('plays the same game', () => {
   })
 
   cy.contains('.overlay__text', 'You solved it').should('be.visible')
+  cy.wait('@times')
+    .its('response.body.length')
+    .then((n) => {
+      cy.get('.overlay__times li').should('have.length', 3)
+    })
+  cy.get('.overlay__times li.overlay__current').should('have.length', 1)
 })

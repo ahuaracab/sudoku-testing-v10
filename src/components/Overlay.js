@@ -6,23 +6,34 @@ const useFetch = (url) => {
   const [loading, setLoading] = useState(true)
 
   async function fetchData() {
-    const response = await fetch(url)
-    const json = await response.json()
-    setData(json)
-    setLoading(false)
+    try {
+      const response = await fetch(url)
+
+      if (response.ok) {
+        const json = await response.json()
+        setData(json)
+      }
+      setLoading(false)
+    } catch (err) {
+      console.error(err)
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
+    if (!url) {
+      return
+    }
     fetchData()
-  }, [])
+  }, [url])
 
   return { loading, data }
 }
 
 export const Overlay = (props) => {
-  const { loading, data } = props.time
-    ? useFetch('/times/' + props.time)
-    : { loading: false, data: [] }
+  const { loading, data } = useFetch(
+    props.overlay && props.time ? '/times/' + props.time : null,
+  )
 
   const className = props.overlay ? 'overlay overlay--visible' : 'overlay'
   return (
