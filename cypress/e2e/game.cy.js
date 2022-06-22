@@ -38,6 +38,8 @@ it('plays the same game', () => {
   })
 
   cy.contains('.overlay__text', 'You solved it').should('be.visible')
+
+  // + load the fixture and get its length
   cy.wait('@times')
     .its('response.body.length')
     .then((n) => {
