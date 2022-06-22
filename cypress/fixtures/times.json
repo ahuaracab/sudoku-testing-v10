@@ -1,0 +1,14 @@
+[
+  {
+    "seconds": 50
+  },
+  {
+    "minutes": 1,
+    "seconds": 30,
+    "current": true
+  },
+  {
+    "minutes": 2,
+    "seconds": 17
+  }
+]

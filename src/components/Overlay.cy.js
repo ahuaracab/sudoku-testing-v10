@@ -18,20 +18,7 @@ describe('Overlay', () => {
   it('shows the list of top times', () => {
     cy.intercept('GET', '/times/90', {
       delay: 1000,
-      body: [
-        {
-          seconds: 50,
-        },
-        {
-          minutes: 1,
-          seconds: 30,
-          current: true,
-        },
-        {
-          minutes: 2,
-          seconds: 17,
-        },
-      ],
+      fixture: 'times.json',
     })
     // we solved Sudoku in 90 seconds
     cy.mount(<Overlay overlay={true} time={90} />)
