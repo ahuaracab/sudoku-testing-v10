@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { init, solved } from '../fixtures/sudoku.json'
+import { init, solved } from '../../fixtures/sudoku.json'
 
 it('plays the same game', () => {
   cy.visit('/', {

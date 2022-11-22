@@ -10,16 +10,10 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   projectId: '1qsjjk',
   e2e: {
+    experimentalRunAllSpecs: true,
     baseUrl: 'http://localhost:3000',
     setupNodeEvents(on, config) {
       require('@bahmutov/cypress-code-coverage/plugin')(on, config)
-
-      if (config.isTextTerminal) {
-        return {
-          excludeSpecPattern: ['cypress/e2e/all.cy.js'],
-        }
-      }
-
       return config
     },
     // control the code coverage plugin via env variables
