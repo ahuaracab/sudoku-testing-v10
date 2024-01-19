@@ -7,16 +7,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # https://github.com/cypress-io/github-action
-      - name: Run Cypress
-        uses: cypress-io/github-action@v4
-        with:
-          start: npm start
-          wait-on: 'http://localhost:3000'
-
-      - name: Run Component tests 🧪
+      - name: Run Component tests
         uses: cypress-io/github-action@v4
         with:
           # we have already installed everything
-          install: false
           component: true
+
+      # https://github.com/cypress-io/github-action
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v4
+        with:
+          install: false
+          start: npm start
+          wait-on: 'http://localhost:3000'
+
+      

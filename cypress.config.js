@@ -8,13 +8,13 @@ const { defineConfig } = require('cypress')
 // isTextTerminal: false,
 
 module.exports = defineConfig({
-  projectId: '1qsjjk',
+  //projectId: '1qsjjk',
   e2e: {
-    experimentalRunAllSpecs: true,
+    //experimentalRunAllSpecs: true,
     baseUrl: 'http://localhost:3000',
     setupNodeEvents(on, config) {
-      require('@bahmutov/cypress-code-coverage/plugin')(on, config)
-      return config
+      //require('@bahmutov/cypress-code-coverage/plugin')(on, config)
+      //return config
     },
     // control the code coverage plugin via env variables
     env: {
