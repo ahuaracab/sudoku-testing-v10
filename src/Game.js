@@ -58,8 +58,8 @@ export const Game = () => {
         ? [window.starting, window.solved]
         : getUniqueSudoku(difficulty, e)
 
-    // console.log(temporaryInitArray)
-    // console.log(temporarySolvedArray)
+    console.log(temporaryInitArray)
+    console.log(temporarySolvedArray)
 
     setInitArray(temporaryInitArray)
     setGameArray(temporaryInitArray)
