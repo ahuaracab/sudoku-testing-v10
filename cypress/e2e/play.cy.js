@@ -6,7 +6,7 @@ describe('Sudoku', () => {
   it('plays the same game', () => {
     cy.visit('/')
 
-    cy.readFile('cypress\\fixtures\\sudoku.json').then((sudokuData) => {
+    cy.readFile('cypress/fixtures/sudoku.json').then((sudokuData) => {
       cy.visit('/', {
         onBeforeLoad(win) {
           win.starting = sudokuData.starting;
