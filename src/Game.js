@@ -7,6 +7,8 @@ import { Overlay } from './components/Overlay'
 import { getUniqueSudoku } from './solver/UniqueSudoku'
 // import * as UniqueSudoku from './solver/UniqueSudoku'
 import { useSudokuContext } from './context/SudokuContext'
+import { useWinContext } from './context/WinContext';
+
 
 /**
  * Game is the main React component.
@@ -42,12 +44,12 @@ export const Game = () => {
     setCellSelected,
     initArray,
     setInitArray,
-    setWon,
   } = useSudokuContext()
   let [mistakesMode, setMistakesMode] = useState(false)
   let [history, setHistory] = useState([])
   let [solvedArray, setSolvedArray] = useState([])
   let [overlay, setOverlay] = useState(false)
+  let { won, setWon } = useWinContext();
 
   /**
    * Creates a new game and initializes the state variables.
@@ -57,9 +59,6 @@ export const Game = () => {
       window.starting && window.solved
         ? [window.starting, window.solved]
         : getUniqueSudoku(difficulty, e)
-
-    console.log(temporaryInitArray)
-    console.log(temporarySolvedArray)
 
     setInitArray(temporaryInitArray)
     setGameArray(temporaryInitArray)

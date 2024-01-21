@@ -2,16 +2,8 @@ import React from 'react'
 import { Game } from './Game'
 import './App.css'
 import { SudokuProvider } from './context/SudokuContext'
-import Name, { age, getName } from './Name'
-import { VERSION, uniqueId } from 'lodash'
+import { WinProvider } from './context/WinContext'
 
-// console.log('Name is', Name)
-// console.log(`age ${age}`)
-// console.log(`getName returns ${getName ? getName() : ''}`)
-
-// console.log('Lodash imports')
-// console.log('VERSION', VERSION)
-// console.log('uniqueId', uniqueId('user_'))
 
 /**
  * App is the root React component.
@@ -19,7 +11,9 @@ import { VERSION, uniqueId } from 'lodash'
 export const App = ({ initial, solved }) => {
   return (
     <SudokuProvider>
-      <Game initial solved />
+      <WinProvider>
+        <Game />
+      </WinProvider>
     </SudokuProvider>
   )
 }
