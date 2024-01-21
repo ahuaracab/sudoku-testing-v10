@@ -23,10 +23,7 @@ describe('Game', () => {
     cy.get('.game__cell:contains(0)').should('have.length', 3)
 
     starting.forEach((cell, index) => {
-      console.log('Entra al foreach')
-      console.log(cell)
       if (cell == 0) {
-        console.log('Entra al if')
         cy.get('.game__cell').eq(index).click()
         cy.contains('.status__number', solved[index])
           .click()
